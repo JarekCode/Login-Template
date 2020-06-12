@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+
+  {% if page_title %}
+    <title>{{ page_title }}</title>
+  {% else %}
+    <title>Login Template</title>
+  {% endif %}
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Custom fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles -->
+  <link href="{{ url_for('static', filename = 'css/sb-admin-2.css') }}" rel="stylesheet">
+  
+
+</head>
+
+<body>
+
+  <div class="text-center">
+    <h1>Home</h1>
+    
+    {% if current_user.is_authenticated %}
+    <div>
+      <p>First Name: {{ current_user.first_name }}</p>
+      <p>Last Name: {{ current_user.last_name }}</p>
+      <p>Email: {{ current_user.email }}</p>
+      <p>Password: {{ current_user.password }}</p>
+      <p>Image File: {{ current_user.image_file }}</p>
+      <p>Role: {{ current_user.role }}</p>
+      <p>Date Created: {{ current_user.date_created }}</p>
+    </div>
+    {% endif %}
+    
+    <div class="container">
+      <a class="btn btn-primary btn-dark" href="{{ url_for('register') }}">Register</a>
+      <a class="btn btn-primary btn-dark" href="{{ url_for('login') }}">Login</a>
+      <a class="btn btn-primary btn-dark" href="{{ url_for('reset_request') }}">Reset Password</a>
+      <a class="btn btn-primary btn-dark" href="{{ url_for('logout') }}">Logout</a>
+    </div>
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
