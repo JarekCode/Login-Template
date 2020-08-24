@@ -1,17 +1,9 @@
 # Login Template
-The template uses the following:
-- Flask
-- SQLite
-- WTForms
-- Bootstrap CSS
 
-Template contains the following:
-- Register
-- Login
-- Logout
-- Password Reset (Token & SMTP)
-
-## Setup
+### Setup
+    virtualenv venv
+    source venv/bin/activate
+    pip install -r requirements.txt
 
 ### SQLite - Create Database
     from flaskApi import db
