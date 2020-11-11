@@ -18,7 +18,7 @@ class User(db.Model, UserMixin):
   email = db.Column(db.String(64), unique = True, nullable = False)
   password = db.Column(db.String(60), nullable = False) # flaskApi bcrypt (60 length)
   image_file = db.Column(db.String(20), nullable = False, default = 'default.jpg')
-  role = db.Column(db.String(32), nullable = False, default = 'student')
+  role = db.Column(db.String(32), nullable = False, default = 'pending')
   date_created = db.Column(db.DateTime, nullable = False, default = datetime.utcnow)
 
   # Setting up a timed reset password token with app['SECRET_KEY'] and expiration time

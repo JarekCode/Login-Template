@@ -1,91 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "signin_base.html" %}
+{% block content %}
 
-<head>
-  <meta charset="utf-8">
+<div class="container">
 
-  {% if page_title %}
-    <title>{{ page_title }}</title>
-  {% else %}
-    <title>Login Template</title>
-  {% endif %}
-
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-  <!-- Custom styles -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-  <link href="{{ url_for('static', filename = 'css/main.css') }}" rel="stylesheet">
-</head>
-
-<body>
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">JarekTech</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="{{ url_for('home') }}">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('register') }}">Register</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('login') }}">Login</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('reset_request') }}">Reset Password</a>
-            </li>
-            {% if current_user.is_authenticated %}
-            <li class="nav-item">
-              <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
-            </li>
-            {% endif %}
-          </ul>
-          {% if current_user.is_authenticated %}
-          <span class="navbar-text">
-            {{ current_user.first_name }} {{ current_user.last_name }}
-          </span>
-          {% endif %}
+  <!-- Outer Row -->
+  <div class="row justify-content-center">
+    <div class="col-xl-10 col-lg-12 col-md-9">
+      <div class="card o-hidden border-0 shadow-lg my-5">
+        <div class="card-body p-0">
+          <!-- Nested Row within Card Body -->
+          <div class="row">
+            <div class="col-lg-6 d-none d-lg-block bg-home-image"></div>
+            <div class="col-lg-6">
+              <div class="p-5">
+                <div class="text-center">
+                  <h1 class="h4 text-gray-900 mb-4">Welcome To Jarek's Coffee!</h1>
+                </div>
+                <div class="text-center">
+                  <a class="btn btn-primary btn-user btn-block" href="{{ url_for('register') }}">Register</a>
+                </div>
+                <br>
+                <div class="text-center">
+                  <a class="btn btn-primary btn-user btn-block" href="{{ url_for('login') }}">Login</a>
+                </div>
+                <br><hr>
+                <p>This is a template containing the following:<br>- Register<br>- Login<br>- Password Reset<br>- Admin Dashboard</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </nav>
-  </header>
-
-  <div class="text-center">
-    <br>
-    <h1>Home</h1>
-    
-    {% if current_user.is_authenticated %}
-    <div>
-      <p>First Name: {{ current_user.first_name }}</p>
-      <p>Last Name: {{ current_user.last_name }}</p>
-      <p>Email: {{ current_user.email }}</p>
-      <p>Password: {{ current_user.password }}</p>
-      <p>Image File: {{ current_user.image_file }}</p>
-      <p>Role: {{ current_user.role }}</p>
-      <p>Date Created: {{ current_user.date_created }}</p>
-    </div>
-    {% endif %}
-    
-    <div class="container">
-      <a class="btn btn-primary btn-dark" href="{{ url_for('register') }}">Register</a>
-      <a class="btn btn-primary btn-dark" href="{{ url_for('login') }}">Login</a>
-      <a class="btn btn-primary btn-dark" href="{{ url_for('reset_request') }}">Reset Password</a>
-      <a class="btn btn-primary btn-dark" href="{{ url_for('logout') }}">Logout</a>
     </div>
   </div>
+</div>
 
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-
-</body>
-
-</html>
+{% endblock content %}
